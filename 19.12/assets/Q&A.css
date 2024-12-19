@@ -1,0 +1,238 @@
+body{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1170px;
+    margin: 0 auto;
+}
+.images_header{
+    padding:10px;
+}
+.images_header a{
+    padding: 5px;
+    background-color: #F29F58;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-left: 800px;
+    font-weight: 700;
+    color: #B31717;
+    font-size: 20px;
+}
+header{
+    background-color: antiquewhite;
+}
+.images_cover{
+    transform: translateY(5.2px);
+}
+.images_cover img{
+    width: 96%;
+ 
+}
+.menu{
+    background-color: #B31717;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+.block-menu{
+
+}
+#list-link {
+    height: 40px;
+    margin-top: 1px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+#list-link ul{
+    
+    padding-right: 40px;
+}
+#list-link a{ 
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    color: #ffff;
+}
+#list-link li,
+.menu-item {
+    position: relative;
+}
+.dropdown-btn span{
+    font-weight: 600;
+    font-size: 15px;
+}
+.dropdown-btn {
+    border: none;
+    background-color: #B31717;
+    color: #ffff;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-content {
+    
+    margin-top: 10px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #B31717;
+    min-width: 200px;
+    z-index: 1000;
+}
+.dropdown-content a {
+    padding:10px;
+    border-top: 0.1px solid #333;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding-bottom: 5px;
+}
+.dropdown-content a:hover {
+    background-color: #88aaf2;
+}
+.menu-item .dropdown-content.show {
+    display: block;
+}
+.main-container{
+    display: flex;
+    gap:30px;
+}
+.list {
+    height: 284px;
+    width: 250px; 
+    border: 1px solid #ccc; 
+}
+
+.menu-header {
+    background-color: #b71c1c; 
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.menu-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item-link {
+    border-top: 1px solid #f0f0f0; 
+    background-color: #fafafa; 
+}
+
+.menu-item-link:first-child {
+    border-top: none; 
+}
+
+.menu-item-link a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none; 
+    color: #b71c1c;
+    font-size: 16px; 
+    transition: background-color 0.3s ease;
+}
+
+.menu-item-link a:hover {
+    background-color: #f9f9f9;
+    color: #900; 
+}
+
+.event{
+    width: 840px;
+}
+
+.menu_header-event{
+    background-color: #b71c1c;
+    color: white;
+    font-weight: bold;
+    padding-left:90px ;
+    height: 30px;
+    padding: 5px;
+    
+}
+.menu_header-event h1{
+    font-size: 16px;
+    line-height: 1;
+}
+.event1{
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.event1 button{
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.event1 img{
+    padding-top: 30px;
+}
+.event1 a{
+    text-decoration: none;
+    color:#b71c1c;
+    font-size: 21px;
+    font-weight: 700;
+}
+.event2{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.footer-end{
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, red, orange, yellow, green, blue, purple) 1;
+}
+
+.contact{
+    height: 210px;
+    gap: 30px;
+    font-family: "Spectral",sans-serif;
+    background-image: url(images/footer.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-footer img{
+    width: 140px;
+    height: 140px;
+}
+.local{
+    width: 400px;
+}
+.local span{
+    font-size: 24px;
+    background:linear-gradient(to right, #F29F58 , blue);
+    -webkit-background-clip: text;
+    color:transparent;
+}
+.local h1{
+    font-size: 17px;
+    color: #333;
+}
+.local a{
+    text-decoration: none;
+}
+.Email{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+.Email h1{
+    font-size: 20px;
+}
+.Email input{
+    padding: 20px;
+    border-radius: 20px;
+    width: 300px;
+    height: 12px;
+}

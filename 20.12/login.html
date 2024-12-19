@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Hệ thống Quản lý Trường học</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+   <link rel="stylesheet" href="assets/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="school-logo">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="school-info">
+                <h1>TRƯỜNG THPT CỘNG HIỀN</h1>
+                <p>Hệ thống đăng nhập trang chủ</p>
+                <p>Điện thoại: (084) 1234 5678</p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="login-header">
+                <h2>Đăng nhập</h2>
+                <p>Vui lòng đăng nhập để truy cập hệ thống</p>
+            </div>
+
+            <div id="alertError" class="alert alert-error"></div>
+
+            <div class="user-type-selector">
+                <button class="user-type-btn active" onclick="selectUserType('student')">Học sinh</button>
+                <button class="user-type-btn" onclick="selectUserType('teacher')">Giáo viên</button>
+            </div>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Mã số học sinh/giáo viên" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Mật khẩu" required>
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" id="remember"> Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" onclick="forgotPassword()">Quên mật khẩu?</a>
+                </div>
+
+                <button type="submit" class="login-btn">Đăng nhập</button>
+            </form>
+
+            <div class="support-links">
+                <a href="#" onclick="showGuide()">Hướng dẫn sử dụng</a>
+                <a href="#" onclick="showSupport()">Hỗ trợ kỹ thuật</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentUserType = 'student';
+
+        function selectUserType(type) {
+            currentUserType = type;
+            document.querySelectorAll('.user-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            //
+            document.getElementById('username').placeholder =
+                type === 'student' ? 'Mã số học sinh' : 'Mã số giáo viên';
+        }
+
+        const users = {
+            student: [
+                { username: 'admin', password: 'admin123' },
+                { username: 'admin2', password: 'admin123' }
+            ],
+            teacher: [
+                { username: 'admin', password: 'admin123' },
+                { username: 'admin1', password: 'admin123' }
+            ]
+        };
+
+  
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const alertError = document.getElementById('alertError');
+
+            if (!username || !password) {
+                showError('Vui lòng điền đầy đủ thông tin!');
+                return;
+            }
+
+
+            const user = users[currentUserType].find(
+                u => u.username === username && u.password === password
+            );
+
+            if (user) {
+  
+                localStorage.setItem('currentUser', JSON.stringify({
+                    username: user.username,
+                    type: currentUserType
+                }));
+
+                // Redirect based on user type
+                if (currentUserType === 'student') {
+                    window.location.href = 'index.html';
+                } else {
+                    window.location.href = 'index.html';
+                }
+            } else {
+                showError('Thông tin đăng nhập không chính xác!');
+            }
+        });
+
+        function showError(message) {
+            const alertError = document.getElementById('alertError');
+            alertError.textContent = message;
+            alertError.style.display = 'block';
+            setTimeout(() => {
+                alertError.style.display = 'none';
+            }, 3000);
+        }
+
+        function forgotPassword() {
+            alert('Vui lòng liên hệ với quản trị viên để được hỗ trợ đặt lại mật khẩu.');
+        }
+
+        function showGuide() {
+            alert('Hệ thống đang cập nhật tài liệu hướng dẫn sử dụng.');
+        }
+
+        function showSupport() {
+            alert('Vui lòng liên hệ số điện thoại: (028) 1234 5678 để được hỗ trợ.');
+        }
+    </script>
+</body>
+
+</html>
